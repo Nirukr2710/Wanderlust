@@ -86,6 +86,10 @@ app.use((req,res,next)=>{
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
 app.use("/",userRouter);
+ 
+app.get ("/",(req,res)=>{
+    res.redirect("/listings");
+})
 
 app.use((req,res,next)=>{
     next(new ExpressError(404,"page not found!"));
@@ -93,7 +97,6 @@ app.use((req,res,next)=>{
 app.use((err,req,res,next)=>{
     let {statusCode=500,message="something went wrong!"}=err;
     res.status(statusCode).render("error.ejs",{message,err});
-    //res.status(statusCode).send(message);
 });
 app.listen(2020,() =>{
     console.log("server is listening to port");

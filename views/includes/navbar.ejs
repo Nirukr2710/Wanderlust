@@ -26,12 +26,12 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"  aria-controls="navbarNavAltMarkup" aria-expanded="false" >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse bg-white p-3" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" href="/listings">Explore</a>
         <a class="nav-link" href="/listings/wishlist"> Wishlist</a>
         </div>
-        <div class="navbar-nav ms-auto">
+        <div class="navbar-nav ms-auto mobile-search">
            <!-- <form class="d-flex" role="search">
       <input class="form-control me-2 search-input" type="search" placeholder="Search destinations" />
       <button class="btn search-btn" type="submit">
@@ -46,7 +46,7 @@
     </button>
     </form>
         </div>
-      <div class="navbar-nav ms-auto text-center">
+      <div class="navbar-nav  text-center">
          <a class="nav-link" href="/listings/new">Add new listing </a>
         <% if(!currUser){ %>
         <a class="nav-link" href="/signup"><b>Signup</b></a>

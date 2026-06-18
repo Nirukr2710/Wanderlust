@@ -30,6 +30,15 @@ const listingData= <%- JSON.stringify(listing) %> ;
     <% } %>
     <div class="col-8 offset- mb-3">
     <% if(currUser) { %>
+      <!--  -->
+      <% if(currUser){ %>
+<form action="/listings/<%= listing._id %>/wishlist" method="POST" class="mb-3">
+    <button class="btn btn-outline-danger">
+        ❤️ Add to Wishlist
+    </button>
+</form>
+<% } %>
+<!--  -->
         <hr>
       <h4>Leave a review</h4>
       <form action="/listings/<%= listing.id %>/reviews" method="POST" novalidate class="needs-validation">
@@ -70,9 +79,12 @@ const listingData= <%- JSON.stringify(listing) %> ;
           <p class="card-text"> <%= review.comment %></p>
 
            </div>
-           <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" class="mb-3" method="POST">
-            <button class="btn btn-sm btn-dark">Delete</button>
-           </form>
+           <% if(currUser && review.author && String(currUser._id) === String(review.author._id)) { %>
+    <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" class="mb-3" method="POST">
+        <button class="btn btn-sm btn-dark">Delete</button>
+    </form>
+    <% } %>
+          
         </div>
       <% } %>
       </div>

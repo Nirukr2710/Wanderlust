@@ -10,16 +10,6 @@ const listingSchema= new Schema({
     image:{
         url:String,
         filename:String
-    //     filename:{
-    //     type: String,
-    //     default: "listingimage",
-    // },
-        
-    //     url:{
-    //         type:String,
-    //         default:"//unsplashttps:h.com/photos/people-sit-at-tables-outside-a-parisian-restaurant-yzh7B-9sOhc",
-    //     set:(v)=> v==="" ? "//unsplashttps:h.com/photos/people-sit-at-tables-outside-a-parisian-restaurant-yzh7B-9sOhc" : v,
-    // },
 },
     price: Number,
     location: String,
@@ -49,6 +39,22 @@ const listingSchema= new Schema({
 //     type:String,
 //     enum:["Mountains","Farm","Iconic cities","Castles","Amazing pool","Arctic"]
 //   }
+category:{
+    type:String,
+    enum:[
+        "Trending",
+        "Room",
+        "Iconic Cities",
+        "Mountains",
+        "Castles",
+        "Amazing Pool",
+        "Camping",
+        "Farms",
+        "Arctic",
+        "Domes",
+        "Boats"
+    ]
+},
 });
 listingSchema.post("findOneAndDelete",async(listing)=>{
     if(listing){

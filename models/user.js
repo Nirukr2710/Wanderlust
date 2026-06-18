@@ -9,6 +9,13 @@ const userSchema= new Schema({
         type:String,
         required:true
     },
+    //wishlist
+    wishlist: [
+    {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Listing"
+    }
+]
 
 });
 // console.log(passportLocalMongoose);

@@ -2,10 +2,12 @@
  const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
  const mapToken=process.env.MAP_TOKEN;
  const geocodingClient = mbxGeocoding({ accessToken: mapToken });
+ const User = require("../models/user");
 
 
  module.exports.index =async (req,res)=>{
       const allListings=await Listing.find({});
+     // console.log("total listings",allListings.length);
       res.render("listings/index",{allListings});
 };
 module.exports.renderNewForm =(req,res)=>{
@@ -104,6 +106,14 @@ listing.geometry = response.body.features[0].geometry;
     req.flash("success","listing updated");
     res.redirect(`/listings/${id}`);
 };  
+module.exports.showWishlist = async (req, res) => {
+    const user = await User.findById(req.user._id)
+        .populate("wishlist");
+
+    res.render("users/wishlist", {
+        listings: user.wishlist
+    });
+};
 module.exports.destroyListing=async(req,res)=>{
     let {id}= req.params;
      let deletedListing= await Listing.findByIdAndDelete(id);

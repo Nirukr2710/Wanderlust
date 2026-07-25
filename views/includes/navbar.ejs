@@ -52,9 +52,26 @@
         <a class="nav-link" href="/signup"><b>Signup</b></a>
         <a class="nav-link" href="/login"><b>Login</b></a>
         <% } %>
-        <% if(currUser){ %>
-        <a class="nav-link" href="/logout"> <b>Logout </b></a>
-        <% } %>
+       <% if(currUser){ %>
+
+<a class="nav-link" href="/profile">
+    <i class="fa-solid fa-user"></i> Profile
+</a>
+
+<a class="nav-link" href="/bookings">
+    <i class="fa-solid fa-calendar-check"></i> My Bookings
+</a>
+  
+<li class="nav-item">
+    <a class="nav-link" href="/bookings/host">
+        My Listing Bookings
+    </a>
+</li>
+<a class="nav-link" href="/logout">
+    <b>Logout</b>
+</a>
+
+<% } %>
       </div>
     </div>
   </div>

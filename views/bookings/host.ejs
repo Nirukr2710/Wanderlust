@@ -1,0 +1,75 @@
+<div class="container mt-4">
+
+    <h2 class="text-center mb-4">Bookings for My Listings</h2>
+
+    <% if(listings.length === 0){ %>
+
+        <div class="alert alert-info text-center">
+            You don't own any listings yet.
+        </div>
+
+    <% } %>
+
+    <% listings.forEach((listing) => { %>
+
+        <div class="card mb-5 shadow">
+
+            <div class="card-header bg-dark text-white">
+                <h4><%= listing.title %></h4>
+            </div>
+
+            <div class="card-body">
+
+                <% if(listing.bookings.length === 0){ %>
+
+                    <p class="text-muted">
+                        No bookings for this listing.
+                    </p>
+
+                <% } else { %>
+
+                    <% listing.bookings.forEach((booking) => { %>
+
+                        <div class="border rounded p-3 mb-3">
+
+                            <h5>
+                                Guest:
+                                <%= booking.user.username %>
+                            </h5>
+
+                            <p>
+                                <strong>Check In:</strong>
+                                <%= booking.checkIn.toDateString() %>
+                            </p>
+
+                            <p>
+                                <strong>Check Out:</strong>
+                                <%= booking.checkOut.toDateString() %>
+                            </p>
+
+                            <p>
+                                <strong>Guests:</strong>
+                                <%= booking.guests %>
+                            </p>
+
+                            <p>
+                                <strong>Status:</strong>
+
+                                <span class="badge bg-success">
+                                    <%= booking.status %>
+                                </span>
+                            </p>
+
+                        </div>
+
+                    <% }) %>
+
+                <% } %>
+
+            </div>
+
+        </div>
+
+    <% }) %>
+
+</div>

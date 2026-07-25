@@ -30,6 +30,40 @@ module.exports.login=async(req,res)=>{
      let redirectUrl=res.locals.redirectUrl || "/listings";
     res.redirect(redirectUrl);
 };
+//profiles
+module.exports.profile = async (req, res) => {
+    const user = await User.findById(req.user._id)
+        .populate("wishlist");
+
+    res.render("users/profile.ejs", { user });
+};
+module.exports.renderEditProfile = async (req, res) => {
+    const user = await User.findById(req.user._id);
+    res.render("users/editProfile.ejs", { user });
+};
+
+module.exports.updateProfile = async (req, res) => {
+
+    const { username, email } = req.body;
+
+    const user = await User.findById(req.user._id);
+
+    user.username = username;
+    user.email = email;
+
+    if (req.file) {
+        user.profileImage = {
+            url: req.file.path,
+            filename: req.file.filename,
+        };
+    }
+
+    await user.save();
+
+    req.flash("success", "Profile updated successfully!");
+
+    res.redirect("/profile");
+};
 module.exports.logout=(req,res,next)=>{
     req.logout((err)=>{
         if(err){

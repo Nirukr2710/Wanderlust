@@ -9,6 +9,23 @@ const userSchema= new Schema({
         type:String,
         required:true
     },
+    //dashboard
+    profileImage: {
+         url: {
+           type: String,
+            default: "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg"
+         },
+        filename: {
+          type: String,
+          default: ""
+         }
+        },
+
+    role: {
+      type: String,
+      enum: ["user", "admin"],
+       default: "user"
+       },
     //wishlist
     wishlist: [
     {

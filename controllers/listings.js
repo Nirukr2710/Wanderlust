@@ -105,7 +105,8 @@ listing.geometry = response.body.features[0].geometry;
 
     req.flash("success","listing updated");
     res.redirect(`/listings/${id}`);
-};  
+}; 
+//show wishlist 
 module.exports.showWishlist = async (req, res) => {
     const user = await User.findById(req.user._id)
         .populate("wishlist");

@@ -34,10 +34,56 @@ const listingData= <%- JSON.stringify(listing) %> ;
       <% if(currUser){ %>
 <form action="/listings/<%= listing._id %>/wishlist" method="POST" class="mb-3">
     <button class="btn btn-outline-danger">
-        ❤️ Add to Wishlist
+        Add to Wishlist
     </button>
 </form>
 <% } %>
+<!--  -->
+<div class="card mt-4 p-3">
+    <h4>Reserve this Stay</h4>
+
+    <form action="/listings/<%= listing._id %>/bookings" method="POST">
+
+        <div class="mb-3">
+            <label class="form-label">Check-in</label>
+            <input
+                type="date"
+                name="checkIn"
+                class="form-control"
+                min="<%= new Date().toISOString().split('T')[0] %>"
+                required
+            >
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Check-out</label>
+            <input
+                type="date"
+                name="checkOut"
+                class="form-control"
+                min="<%= new Date().toISOString().split('T')[0] %>"
+                required
+            >
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Guests</label>
+            <input
+                type="number"
+                name="guests"
+                class="form-control"
+                min="1"
+                value="1"
+                required
+            >
+        </div>
+
+        <button class="btn btn-dark">
+            Reserve Now
+        </button>
+
+    </form>
+</div>
 <!--  -->
         <hr>
       <h4>Leave a review</h4>

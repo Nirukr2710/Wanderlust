@@ -20,7 +20,7 @@ module.exports.createBooking = async (req, res) => {
 
     const listing = await Listing.findById(id);
     
-    for (let existingBooking of existingBookings) {
+    for (let existingBooking of listing.bookings) {
 
     if (
         new Date(checkIn) < existingBooking.checkOut &&

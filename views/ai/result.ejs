@@ -1,0 +1,502 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="ai-result-page">
+
+    <!-- Trip Header -->
+    <div class="ai-trip-header">
+
+        <div class="ai-badge">
+            🤖 Wanderlust AI
+        </div>
+
+        <h1>Your AI Trip Plan</h1>
+
+        <h2>
+            <%= itinerary.destination %>
+        </h2>
+
+        <p>
+            Your personalized travel itinerary is ready ✨
+        </p>
+
+    </div>
+
+
+    <!-- Total Budget -->
+    <div class="ai-total-budget">
+
+        <div class="budget-icon">
+            💰
+        </div>
+
+        <div>
+            <span>Estimated Total Budget</span>
+
+            <strong>
+                ₹<%= itinerary.totalBudget.toLocaleString("en-IN") %>
+            </strong>
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         DAY-BY-DAY ITINERARY
+         ========================================= -->
+
+    <div class="ai-days-container">
+
+        <% itinerary.days.forEach(day => { %>
+
+            <div class="ai-day-card">
+
+                <!-- Day Header -->
+                <div class="ai-day-header">
+
+                    <div class="day-number">
+                        <%= day.day %>
+                    </div>
+
+                    <div>
+                        <span>DAY <%= day.day %></span>
+
+                        <h2>
+                            Your Adventure
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div class="ai-day-content">
+
+                    <!-- Places -->
+                    <div class="ai-section">
+
+                        <div class="ai-section-title">
+                            <span class="ai-section-icon">📍</span>
+
+                            <h3>
+                                Places to Visit
+                            </h3>
+                        </div>
+
+                        <ul>
+
+                            <% day.places.forEach(place => { %>
+
+                                <li>
+                                    <%= place %>
+                                </li>
+
+                            <% }) %>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Activities -->
+                    <div class="ai-section">
+
+                        <div class="ai-section-title">
+
+                            <span class="ai-section-icon">
+                                🎯
+                            </span>
+
+                            <h3>
+                                Activities
+                            </h3>
+
+                        </div>
+
+                        <ul>
+
+                            <% day.activities.forEach(activity => { %>
+
+                                <li>
+                                    <%= activity %>
+                                </li>
+
+                            <% }) %>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Food -->
+                    <div class="ai-section">
+
+                        <div class="ai-section-title">
+
+                            <span class="ai-section-icon">
+                                🍴
+                            </span>
+
+                            <h3>
+                                Food Recommendations
+                            </h3>
+
+                        </div>
+
+                        <ul>
+
+                            <% day.food.forEach(food => { %>
+
+                                <li>
+                                    <%= food %>
+                                </li>
+
+                            <% }) %>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Daily Budget -->
+                    <div class="ai-daily-budget">
+
+                        <div>
+
+                            <span>
+                                💰 Daily Budget
+                            </span>
+
+                            <strong>
+                                ₹<%= day.budget.toLocaleString("en-IN") %>
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Travel Tip -->
+                    <div class="ai-tip">
+
+                        <div class="ai-tip-icon">
+                            💡
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Travel Tip
+                            </strong>
+
+                            <p>
+                                <%= day.tips %>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+    <!-- =========================================
+     AI RECOMMENDED STAY
+     ========================================= -->
+
+<% if (recommendedListing) { %>
+
+    <div class="ai-recommended-stay">
+
+        <div class="ai-recommended-label">
+            ⭐ AI Recommended Stay
+        </div>
+
+        <div class="ai-recommended-content">
+
+            <!-- Image -->
+
+            <div class="ai-recommended-image">
+
+                <% if (recommendedListing.image &&
+                       recommendedListing.image.url) { %>
+
+                    <img
+                        src="<%= recommendedListing.image.url %>"
+                        alt="<%= recommendedListing.title %>"
+                    >
+
+                <% } else { %>
+
+                    <div class="ai-no-image">
+                        🏠
+                    </div>
+
+                <% } %>
+
+            </div>
+
+
+            <!-- Details -->
+
+            <div class="ai-recommended-details">
+
+                <h2>
+                    <%= recommendedListing.title %>
+                </h2>
+
+                <p class="ai-listing-location">
+                    📍 <%= recommendedListing.location %>
+                    <% if (recommendedListing.country) { %>
+                        , <%= recommendedListing.country %>
+                    <% } %>
+                </p>
+
+                <% if (recommendedListing.description) { %>
+
+                    <p class="ai-recommended-description">
+                        <%= recommendedListing.description %>
+                    </p>
+
+                <% } %>
+
+                <% if (recommendedListing.price) { %>
+
+                    <div class="ai-recommended-price">
+
+                        ₹<%= recommendedListing.price.toLocaleString("en-IN") %>
+
+                        <span>/ night</span>
+
+                    </div>
+
+                <% } %>
+
+                <a
+                    href="/listings/<%= recommendedListing._id %>"
+                    class="ai-view-listing"
+                >
+                    View Recommended Stay
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<% } %>
+
+
+    <!-- =========================================
+         REAL WANDERLUST LISTINGS
+         ========================================= -->
+
+    <% if (listings && listings.length > 0) { %>
+
+        <div class="ai-listings-section">
+
+            <div class="ai-listings-heading">
+
+                <div class="ai-badge">
+                    🏠 Wanderlust
+                </div>
+
+                <h2>
+                    Recommended Stays
+                </h2>
+
+                <p>
+                    Real listings from your Wanderlust database
+                </p>
+
+            </div>
+
+
+            <div class="ai-listings-grid">
+
+                <% listings.forEach(listing => { %>
+
+                    <div class="ai-listing-card">
+
+                        <!-- Listing Image -->
+
+                        <div class="ai-listing-image">
+
+                            <% if (listing.image && listing.image.url) { %>
+
+                                <img
+                                    src="<%= listing.image.url %>"
+                                    alt="<%= listing.title %>"
+                                >
+
+                            <% } else { %>
+
+                                <div class="ai-no-image">
+                                    🏠
+                                </div>
+
+                            <% } %>
+
+                        </div>
+
+
+                        <!-- Listing Information -->
+
+                        <div class="ai-listing-body">
+
+                            <h3>
+                                <%= listing.title %>
+                            </h3>
+
+
+                            <p class="ai-listing-location">
+
+                                📍
+                                <%= listing.location %>
+
+                                <% if (listing.country) { %>
+                                    , <%= listing.country %>
+                                <% } %>
+
+                            </p>
+
+
+                            <% if (listing.category) { %>
+
+                                <span class="ai-listing-category">
+                                    <%= listing.category %>
+                                </span>
+
+                            <% } %>
+
+
+                            <% if (listing.price) { %>
+
+                                <p class="ai-listing-price">
+
+                                    ₹<%= listing.price.toLocaleString("en-IN") %>
+
+                                    <span>
+                                        / night
+                                    </span>
+
+                                </p>
+
+                            <% } %>
+
+
+                            <a
+                                href="/listings/<%= listing._id %>"
+                                class="ai-view-listing"
+                            >
+                                View Listing
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                <% }) %>
+
+            </div>
+
+        </div>
+
+    <% } else { %>
+
+        <!-- No Listings Found -->
+
+        <div class="ai-no-listings">
+
+            <h3>
+                🏠 No matching stays found
+            </h3>
+
+            <p>
+                We couldn't find a Wanderlust listing for this destination,
+                but your AI itinerary is ready.
+            </p>
+
+        </div>
+
+    <% } %>
+
+
+    <!-- =========================================
+         BOTTOM BUTTONS
+         ========================================= -->
+
+    <div class="ai-result-actions">
+
+    <% if (currUser) { %>
+
+        <form action="/ai/save-trip" method="POST">
+
+           <input type="hidden" name="destination" value="<%= tripDetails.destination %>">
+
+<input type="hidden" name="days" value="<%= tripDetails.days %>">
+
+<input type="hidden" name="budget" value="<%= tripDetails.budget %>">
+
+<input type="hidden" name="travelType" value="<%= tripDetails.travelType %>">
+
+<input type="hidden" name="interests" value='<%= JSON.stringify(tripDetails.interests) %>'>
+
+            <input
+                type="hidden"
+                name="itinerary"
+                value='<%= JSON.stringify(itinerary) %>'
+            >
+
+            <% if (recommendedListing) { %>
+
+                <input
+                    type="hidden"
+                    name="recommendedListing"
+                    value="<%= recommendedListing._id %>"
+                >
+
+            <% } %>
+
+            <button
+                type="submit"
+                class="ai-save-trip"
+            >
+                💾 Save This Trip
+            </button>
+
+        </form>
+
+    <% } else { %>
+
+        <a
+            href="/login"
+            class="ai-save-trip"
+        >
+            🔐 Login to Save Trip
+        </a>
+
+    <% } %>
+
+
+    <a
+        href="/ai/trip-planner"
+        class="ai-plan-again"
+    >
+        ✨ Plan Another Trip
+    </a>
+
+
+    <a
+        href="/listings"
+        class="ai-explore"
+    >
+        Explore Wanderlust
+    </a>
+
+</div>
+
+</div>

@@ -1,0 +1,812 @@
+/* =========================================
+   WANDERLUST AI TRIP PLANNER
+   ========================================= */
+
+.ai-result-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 45px 20px 70px;
+}
+
+
+/* =========================================
+   TRIP HEADER
+   ========================================= */
+
+.ai-trip-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.ai-badge {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: #fff1f2;
+    color: #ff385c;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.ai-trip-header h1 {
+    font-size: 46px;
+    font-weight: 700;
+    margin: 0;
+    color: #222222;
+}
+
+.ai-trip-header h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    color: #333333;
+}
+
+.ai-trip-header p {
+    color: #717171;
+    font-size: 17px;
+    margin: 0;
+}
+
+
+/* =========================================
+   TOTAL BUDGET
+   ========================================= */
+
+.ai-total-budget {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 18px;
+
+    padding: 25px;
+    margin-bottom: 35px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.budget-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff1f2;
+    border-radius: 50%;
+
+    font-size: 28px;
+}
+
+.ai-total-budget span {
+    display: block;
+    color: #717171;
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+.ai-total-budget strong {
+    display: block;
+    font-size: 30px;
+    color: #222222;
+}
+
+
+/* =========================================
+   DAY CARD
+   ========================================= */
+
+.ai-day-card {
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    margin-bottom: 30px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================
+   DAY HEADER
+   ========================================= */
+
+.ai-day-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 22px 25px;
+
+    background: #fafafa;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.day-number {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #ff385c;
+    color: white;
+
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.ai-day-header span {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #717171;
+}
+
+.ai-day-header h2 {
+    margin: 2px 0 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #222222;
+}
+
+
+/* =========================================
+   DAY CONTENT
+   ========================================= */
+
+.ai-day-content {
+    padding: 30px;
+}
+
+
+/* =========================================
+   SECTIONS
+   ========================================= */
+
+.ai-section {
+    margin-bottom: 28px;
+}
+
+.ai-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+.ai-section-icon {
+    font-size: 21px;
+}
+
+.ai-section-title h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #222222;
+}
+
+.ai-section ul {
+    margin: 0;
+    padding-left: 30px;
+}
+
+.ai-section li {
+    margin-bottom: 8px;
+    color: #484848;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   DAILY BUDGET
+   ========================================= */
+
+.ai-daily-budget {
+    margin-top: 10px;
+    margin-bottom: 25px;
+
+    padding: 18px 20px;
+
+    background: #f7f7f7;
+    border-radius: 12px;
+
+    border: 1px solid #eeeeee;
+}
+
+.ai-daily-budget span {
+    display: block;
+    color: #717171;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.ai-daily-budget strong {
+    font-size: 24px;
+    color: #222222;
+}
+
+
+/* =========================================
+   TRAVEL TIP
+   ========================================= */
+
+.ai-tip {
+    display: flex;
+    gap: 15px;
+
+    padding: 20px;
+
+    background: #fff8e7;
+    border-radius: 12px;
+
+    border: 1px solid #f1dfaa;
+}
+
+.ai-tip-icon {
+    font-size: 25px;
+}
+
+.ai-tip strong {
+    display: block;
+    font-size: 17px;
+    margin-bottom: 5px;
+    color: #333333;
+}
+
+.ai-tip p {
+    margin: 0;
+    color: #555555;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.ai-result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    margin-top: 40px;
+}
+
+.ai-plan-again,
+.ai-explore {
+    display: inline-block;
+
+    padding: 13px 25px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.ai-plan-again {
+    background: #ff385c;
+    color: white;
+}
+
+.ai-plan-again:hover {
+    background: #e31c5f;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.ai-explore {
+    background: #ffffff;
+    color: #222222;
+
+    border: 1px solid #dddddd;
+}
+
+.ai-explore:hover {
+    background: #f7f7f7;
+    color: #222222;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .ai-result-page {
+        padding: 30px 15px 50px;
+    }
+
+    .ai-trip-header h1 {
+        font-size: 34px;
+    }
+
+    .ai-trip-header h2 {
+        font-size: 26px;
+    }
+
+    .ai-total-budget {
+        padding: 20px;
+    }
+
+    .ai-total-budget strong {
+        font-size: 26px;
+    }
+
+    .ai-day-header {
+        padding: 18px;
+    }
+
+    .ai-day-content {
+        padding: 20px;
+    }
+
+    .ai-day-header h2 {
+        font-size: 20px;
+    }
+
+    .ai-result-actions {
+        flex-direction: column;
+    }
+
+    .ai-plan-again,
+    .ai-explore {
+        text-align: center;
+        width: 100%;
+    }
+}
+/* =========================================
+   WANDERLUST LISTINGS
+   ========================================= */
+
+.ai-listings-section {
+    margin-top: 50px;
+}
+
+.ai-listings-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.ai-listings-heading h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 10px 0 5px;
+    color: #222222;
+}
+
+.ai-listings-heading p {
+    color: #717171;
+    margin: 0;
+    font-size: 16px;
+}
+
+
+/* Listings Grid */
+
+.ai-listings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+
+/* Listing Card */
+
+.ai-listing-card {
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 16px;
+    overflow: hidden;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.ai-listing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Listing Image */
+
+.ai-listing-image {
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+    background: #f7f7f7;
+}
+
+.ai-listing-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.ai-no-image {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 45px;
+}
+
+
+/* Listing Body */
+
+.ai-listing-body {
+    padding: 18px;
+}
+
+.ai-listing-body h3 {
+    margin: 0 0 8px;
+
+    font-size: 19px;
+    font-weight: 600;
+
+    color: #222222;
+}
+
+.ai-listing-location {
+    margin: 0 0 12px;
+
+    color: #717171;
+    font-size: 14px;
+}
+
+
+/* Category */
+
+.ai-listing-category {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background: #fff1f2;
+    color: #ff385c;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    margin-bottom: 12px;
+}
+
+
+/* Price */
+
+.ai-listing-price {
+    margin: 5px 0 16px;
+
+    font-size: 19px;
+    font-weight: 600;
+
+    color: #222222;
+}
+
+.ai-listing-price span {
+    font-size: 13px;
+    font-weight: 400;
+    color: #717171;
+}
+
+
+/* View Listing Button */
+
+.ai-view-listing {
+    display: block;
+
+    width: 100%;
+
+    padding: 10px;
+
+    text-align: center;
+
+    background: #ff385c;
+    color: #ffffff;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.ai-view-listing:hover {
+    background: #e31c5f;
+    color: #ffffff;
+}
+
+
+/* No Listings */
+
+.ai-no-listings {
+    text-align: center;
+
+    margin-top: 45px;
+    padding: 35px 20px;
+
+    background: #fafafa;
+
+    border: 1px solid #dddddd;
+    border-radius: 16px;
+}
+
+.ai-no-listings h3 {
+    margin-bottom: 8px;
+    color: #222222;
+}
+
+.ai-no-listings p {
+    margin: 0;
+    color: #717171;
+}
+
+
+/* =========================================
+   RESPONSIVE LISTINGS
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .ai-listings-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .ai-listings-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-listings-heading h2 {
+        font-size: 27px;
+    }
+
+    .ai-listing-image {
+        height: 220px;
+    }
+
+}
+/* =========================================
+   AI RECOMMENDED STAY
+   ========================================= */
+
+.ai-recommended-stay {
+    margin: 50px 0 40px;
+
+    background: #ffffff;
+
+    border: 2px solid #ff385c;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+.ai-recommended-label {
+    padding: 14px 22px;
+
+    background: #fff1f2;
+
+    color: #ff385c;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.ai-recommended-content {
+    display: grid;
+
+    grid-template-columns: 40% 60%;
+}
+
+.ai-recommended-image {
+    min-height: 300px;
+    background: #f7f7f7;
+}
+
+.ai-recommended-image img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 300px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.ai-recommended-details {
+    padding: 30px;
+}
+
+.ai-recommended-details h2 {
+    margin: 0 0 10px;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    color: #222222;
+}
+
+.ai-recommended-description {
+    color: #555555;
+
+    line-height: 1.6;
+
+    margin: 18px 0;
+}
+
+.ai-recommended-price {
+    font-size: 24px;
+    font-weight: 700;
+
+    margin: 20px 0;
+}
+
+.ai-recommended-price span {
+    font-size: 14px;
+    font-weight: 400;
+
+    color: #717171;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .ai-recommended-content {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-recommended-image {
+        min-height: 220px;
+    }
+
+    .ai-recommended-image img {
+        min-height: 220px;
+    }
+
+    .ai-recommended-details {
+        padding: 22px;
+    }
+
+    .ai-recommended-details h2 {
+        font-size: 23px;
+    }
+
+}
+/* =========================================
+   SAVE TRIP BUTTON
+   ========================================= */
+
+.ai-save-trip {
+    display: inline-block;
+
+    padding: 13px 25px;
+
+    border-radius: 10px;
+
+    border: none;
+
+    background: #222222;
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.ai-save-trip:hover {
+    background: #444444;
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+/* Make form behave like the other buttons */
+
+.ai-result-actions form {
+    margin: 0;
+}
+.ai-delete-trip {
+    width: 100%;
+    border: none;
+    background: #dc3545;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.ai-delete-trip:hover {
+    background: #b02a37;
+}
+.ai-trip-summary {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 25px auto;
+    flex-wrap: wrap;
+}
+
+.ai-trip-summary div {
+    background: #f8f9fa;
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 150px;
+}
+
+.ai-trip-summary span {
+    display: block;
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.ai-trip-summary strong {
+    font-size: 1.1rem;
+}
+.ai-edit-trip {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    background: #f8f9fa;
+    color: #222;
+    border: 1px solid #ddd;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 8px;
+    transition: 0.2s;
+}
+
+.ai-edit-trip:hover {
+    background: #e9ecef;
+    color: #000;
+}

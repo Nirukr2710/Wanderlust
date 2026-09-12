@@ -1,0 +1,149 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="ai-result-page">
+
+    <div class="ai-trip-header">
+
+        <div class="ai-badge">
+            💾 Wanderlust
+        </div>
+
+        <h1>My AI Trips</h1>
+
+        <p>
+            Your saved AI travel plans
+        </p>
+
+    </div>
+
+
+    <% if (trips.length === 0) { %>
+
+    <div class="ai-no-listings">
+
+        <div style="font-size: 55px; margin-bottom: 15px;">
+            🤖
+        </div>
+
+        <h3>
+            No AI Trips Yet
+        </h3>
+
+        <p>
+            Let AI create a personalized travel plan based on
+            your destination, budget and interests.
+        </p>
+
+        <a
+            href="/ai/trip-planner"
+            class="ai-plan-again"
+            style="margin-top: 20px;"
+        >
+            ✨ Create My First AI Trip
+        </a>
+
+    </div>
+
+<% } else { %>
+
+
+        <div class="ai-listings-grid">
+
+            <% trips.forEach(trip => { %>
+
+                <div class="ai-listing-card">
+
+                    <div class="ai-listing-body">
+
+                        <span class="ai-listing-category">
+                            AI TRIP
+                        </span>
+
+                        <h3>
+                            <%= trip.destination %>
+                        </h3>
+
+                        <p class="ai-listing-location">
+                            🗓️ <%= trip.days %> days
+                        </p>
+
+                        <p class="ai-listing-location">
+                            👤 <%= trip.travelType %>
+                        </p>
+
+                        <% if (trip.interests && trip.interests.length > 0) { %>
+    <p class="ai-listing-location">
+        ❤️ <%= trip.interests.join(", ") %>
+    </p>
+<% } %>
+
+
+                        <p class="ai-listing-price">
+                            ₹<%= trip.budget.toLocaleString("en-IN") %>
+
+                            <span>
+                                budget
+                            </span>
+                        </p>
+
+                        <p class="ai-listing-location">
+                            📅
+                            <%= new Date(trip.createdAt).toLocaleDateString("en-IN") %>
+                        </p>
+
+                        <% if (trip.recommendedListing) { %>
+
+                            <p class="ai-listing-location">
+                                ⭐ <%= trip.recommendedListing.title %>
+                            </p>
+
+                        <% } %>
+
+
+                        <a
+                            href="/ai/my-trips/<%= trip._id %>"
+                            class="ai-view-listing"
+                        >
+                            View Trip
+                        </a>
+<a
+    href="/ai/my-trips/<%= trip._id %>/edit"
+    class="ai-edit-trip"
+>
+    ✏️ Edit Trip
+</a>
+                        <form
+    action="/ai/my-trips/<%= trip._id %>?_method=DELETE"
+    method="POST"
+    style="margin-top: 10px;"
+>
+    <button type="submit" class="ai-delete-trip"
+        onclick="return confirm('Are you sure you want to delete this trip?');">
+        🗑️ Delete Trip
+    </button>
+</form>
+
+                    </div>
+
+                </div>
+
+            <% }) %>
+
+        </div>
+
+
+    <% } %>
+
+
+    <div class="ai-result-actions">
+
+        <a
+            href="/ai/trip-planner"
+            class="ai-plan-again"
+        >
+            ✨ Create New Trip
+        </a>
+
+    </div>
+
+</div>

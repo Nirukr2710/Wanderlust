@@ -29,7 +29,16 @@
     <div class="collapse navbar-collapse bg-white p-3" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" href="/listings">Explore</a>
-        <a class="nav-link" href="/listings/wishlist"> Wishlist</a>
+        <a class="nav-link" href="/listings/wishlist">Wishlist</a>
+
+      <a class="nav-link ai-nav-link" href="/ai/trip-planner">
+        🤖 AI Trip Planner
+     </a>
+     <% if(currUser){ %>
+<a class="nav-link" href="/ai/my-trips">
+    💾 My AI Trips
+</a>
+<% } %>
         </div>
         <div class="navbar-nav ms-auto mobile-search">
            <!-- <form class="d-flex" role="search">

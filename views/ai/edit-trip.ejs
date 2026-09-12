@@ -1,0 +1,230 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+
+            <div class="card shadow p-4">
+
+                <h1 class="text-center mb-3">
+                    ✏️ Edit Saved Trip
+                </h1>
+
+                <p class="text-center text-muted mb-4">
+                    Update your trip preferences
+                </p>
+
+                <form action="/ai/my-trips/<%= trip._id %>/update" method="POST">
+                    <!-- Destination -->
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Destination
+                        </label>
+
+                        <input
+                            type="text"
+                            name="destination"
+                            class="form-control"
+                            value="<%= trip.destination %>"
+                            required
+                        >
+                    </div>
+
+                    <!-- Number of Days -->
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Number of Days
+                        </label>
+
+                        <input
+                            type="number"
+                            name="days"
+                            class="form-control"
+                            min="1"
+                            max="30"
+                            value="<%= trip.days %>"
+                            required
+                        >
+                    </div>
+
+                    <!-- Budget -->
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Budget (₹)
+                        </label>
+
+                        <input
+                            type="number"
+                            name="budget"
+                            class="form-control"
+                            min="1000"
+                            value="<%= trip.budget %>"
+                            required
+                        >
+                    </div>
+
+                    <!-- Travel Type -->
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Travel Type
+                        </label>
+
+                        <select
+                            name="travelType"
+                            class="form-select"
+                            required
+                        >
+                            <option
+                                value="Solo"
+                                <%= trip.travelType === "Solo" ? "selected" : "" %>
+                            >
+                                Solo
+                            </option>
+
+                            <option
+                                value="Couple"
+                                <%= trip.travelType === "Couple" ? "selected" : "" %>
+                            >
+                                Couple
+                            </option>
+
+                            <option
+                                value="Family"
+                                <%= trip.travelType === "Family" ? "selected" : "" %>
+                            >
+                                Family
+                            </option>
+
+                            <option
+                                value="Friends"
+                                <%= trip.travelType === "Friends" ? "selected" : "" %>
+                            >
+                                Friends
+                            </option>
+                        </select>
+                    </div>
+
+                    <!-- Interests -->
+                    <div class="mb-4">
+
+                        <label class="form-label">
+                            Your Interests
+                        </label>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="interests"
+                                        value="Adventure"
+                                        <%= trip.interests.includes("Adventure") ? "checked" : "" %>
+                                    >
+                                    <label class="form-check-label">
+                                        Adventure
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="interests"
+                                        value="Food"
+                                        <%= trip.interests.includes("Food") ? "checked" : "" %>
+                                    >
+                                    <label class="form-check-label">
+                                        Food
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="interests"
+                                        value="History"
+                                        <%= trip.interests.includes("History") ? "checked" : "" %>
+                                    >
+                                    <label class="form-check-label">
+                                        History
+                                    </label>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="interests"
+                                        value="Shopping"
+                                        <%= trip.interests.includes("Shopping") ? "checked" : "" %>
+                                    >
+                                    <label class="form-check-label">
+                                        Shopping
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="interests"
+                                        value="Beaches"
+                                        <%= trip.interests.includes("Beaches") ? "checked" : "" %>
+                                    >
+                                    <label class="form-check-label">
+                                        Beaches
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="interests"
+                                        value="Nature"
+                                        <%= trip.interests.includes("Nature") ? "checked" : "" %>
+                                    >
+                                    <label class="form-check-label">
+                                        Nature
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex gap-2">
+
+                        <button
+                            type="submit"
+                            class="btn btn-dark w-100"
+                        >
+                            💾 Save Changes
+                        </button>
+
+                        <a
+                            href="/ai/my-trips/<%= trip._id %>"
+                            class="btn btn-outline-secondary w-100"
+                        >
+                            Cancel
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,198 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5 mb-5">
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card shadow p-4">
+
+                <h1 class="text-center mb-4">
+                    🤖 AI Trip Planner
+                </h1>
+
+                <p class="text-center text-muted mb-4">
+                    Create a personalized travel itinerary with AI
+                </p>
+
+               <form action="/ai/plan-trip" method="POST" id="aiTripForm">
+
+                    <!-- Destination -->
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Destination
+                        </label>
+
+                        <input
+                            type="text"
+                            name="destination"
+                            class="form-control"
+                            placeholder="e.g. Goa"
+                            required
+                        >
+                    </div>
+
+                    <!-- Days -->
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Number of Days
+                        </label>
+
+                        <input
+                            type="number"
+                            name="days"
+                            class="form-control"
+                            min="1"
+                            max="30"
+                            placeholder="e.g. 5"
+                            required
+                        >
+                    </div>
+
+                    <!-- Budget -->
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Budget (₹)
+                        </label>
+                    <input type="number" name="budget" class="form-control"
+       min="1000"
+       placeholder="e.g. 30000"
+       required>
+                       
+                    </div>
+
+                    <!-- Travel Type -->
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Travel Type
+                        </label>
+
+                        <select
+                            name="travelType"
+                            class="form-select"
+                            required
+                        >
+                            <option value="">Select</option>
+                            <option value="Solo">Solo</option>
+                            <option value="Couple">Couple</option>
+                            <option value="Family">Family</option>
+                            <option value="Friends">Friends</option>
+                        </select>
+                    </div>
+
+                    <!-- Interests -->
+                    <div class="mb-4">
+                        <label class="form-label">
+                            Your Interests
+                        </label>
+
+                        <small class="text-muted">
+    Select one or more interests to make your itinerary more personalized.
+</small>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="interests"
+                                        value="Adventure"
+                                    >
+                                    <label class="form-check-label">
+                                        Adventure
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="interests"
+                                        value="Food"
+                                    >
+                                    <label class="form-check-label">
+                                        Food
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="interests"
+                                        value="History"
+                                    >
+                                    <label class="form-check-label">
+                                        History
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="interests"
+                                        value="Shopping"
+                                    >
+                                    <label class="form-check-label">
+                                        Shopping
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="interests"
+                                        value="Beaches"
+                                    >
+                                    <label class="form-check-label">
+                                        Beaches
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="interests"
+                                        value="Nature"
+                                    >
+                                    <label class="form-check-label">
+                                        Nature
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                  <button type="submit" class="btn btn-dark w-100" id="aiGenerateBtn">
+    ✨ Generate My Trip
+</button>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<script>
+    const aiTripForm = document.getElementById("aiTripForm");
+    const aiGenerateBtn = document.getElementById("aiGenerateBtn");
+
+    aiTripForm.addEventListener("submit", function () {
+        aiGenerateBtn.disabled = true;
+        aiGenerateBtn.innerHTML = "🤖 Creating your trip...";
+
+        setTimeout(() => {
+            aiGenerateBtn.innerHTML = "✨ AI is planning your trip...";
+        }, 2000);
+    });
+</script>

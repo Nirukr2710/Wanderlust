@@ -1,0 +1,286 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="ai-result-page">
+
+    <div class="ai-trip-header">
+
+        <div class="ai-badge">
+            💾 Saved AI Trip
+        </div>
+
+        <h1>
+            <%= trip.destination %>
+        </h1>
+
+       <p>
+    <%= trip.days %> days ·
+    <%= trip.travelType %> ·
+    ₹<%= trip.budget.toLocaleString("en-IN") %> budget
+</p>
+
+<% if (trip.interests && trip.interests.length > 0) { %>
+    <p style="margin-top: 10px;">
+        ❤️ <%= trip.interests.join(", ") %>
+    </p>
+<% } %>
+
+<div class="ai-trip-summary">
+    <div>
+        <span>📅 Duration</span>
+        <strong><%= trip.days %> Days</strong>
+    </div>
+
+    <div>
+        <span>👤 Travel Type</span>
+        <strong><%= trip.travelType %></strong>
+    </div>
+
+    <div>
+        <span>💰 Budget</span>
+        <strong>₹<%= trip.budget.toLocaleString("en-IN") %></strong>
+    </div>
+</div>
+    </div>
+
+
+    <!-- Recommended Stay -->
+
+    <% if (trip.recommendedListing) { %>
+
+        <div class="ai-recommended-stay">
+
+            <div class="ai-recommended-label">
+                ⭐ Your AI Recommended Stay
+            </div>
+
+            <div class="ai-recommended-content">
+
+                <div class="ai-recommended-image">
+
+                    <% if (
+                        trip.recommendedListing.image &&
+                        trip.recommendedListing.image.url
+                    ) { %>
+
+                        <img
+                            src="<%= trip.recommendedListing.image.url %>"
+                            alt="<%= trip.recommendedListing.title %>"
+                        >
+
+                    <% } %>
+
+                </div>
+
+
+                <div class="ai-recommended-details">
+
+                    <h2>
+                        <%= trip.recommendedListing.title %>
+                    </h2>
+
+                    <p class="ai-listing-location">
+                        📍
+                        <%= trip.recommendedListing.location %>
+                    </p>
+
+                    <% if (trip.recommendedListing.price) { %>
+
+                        <div class="ai-recommended-price">
+
+                            ₹<%= trip.recommendedListing.price.toLocaleString("en-IN") %>
+
+                            <span>/ night</span>
+
+                        </div>
+
+                    <% } %>
+
+                    <a
+                        href="/listings/<%= trip.recommendedListing._id %>"
+                        class="ai-view-listing"
+                    >
+                        View Stay
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    <% } %>
+
+
+    <!-- Saved Itinerary -->
+
+    <div class="ai-days-container">
+
+        <% trip.itinerary.days.forEach(day => { %>
+
+            <div class="ai-day-card">
+
+                <div class="ai-day-header">
+
+                    <div class="day-number">
+                        <%= day.day %>
+                    </div>
+
+                    <div>
+
+                        <span>
+                            DAY <%= day.day %>
+                        </span>
+
+                        <h2>
+                            Your Adventure
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ai-day-content">
+
+                    <div class="ai-section">
+
+                        <div class="ai-section-title">
+                            <span class="ai-section-icon">📍</span>
+
+                            <h3>
+                                Places to Visit
+                            </h3>
+                        </div>
+
+                        <ul>
+
+                            <% day.places.forEach(place => { %>
+
+                                <li>
+                                    <%= place %>
+                                </li>
+
+                            <% }) %>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="ai-section">
+
+                        <div class="ai-section-title">
+                            <span class="ai-section-icon">🎯</span>
+
+                            <h3>
+                                Activities
+                            </h3>
+                        </div>
+
+                        <ul>
+
+                            <% day.activities.forEach(activity => { %>
+
+                                <li>
+                                    <%= activity %>
+                                </li>
+
+                            <% }) %>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="ai-section">
+
+                        <div class="ai-section-title">
+                            <span class="ai-section-icon">🍴</span>
+
+                            <h3>
+                                Food Recommendations
+                            </h3>
+                        </div>
+
+                        <ul>
+
+                            <% day.food.forEach(food => { %>
+
+                                <li>
+                                    <%= food %>
+                                </li>
+
+                            <% }) %>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="ai-daily-budget">
+
+                        <span>
+                            💰 Daily Budget
+                        </span>
+
+                        <strong>
+                            ₹<%= day.budget.toLocaleString("en-IN") %>
+                        </strong>
+
+                    </div>
+
+
+                    <div class="ai-tip">
+
+                        <div class="ai-tip-icon">
+                            💡
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Travel Tip
+                            </strong>
+
+                            <p>
+                                <%= day.tips %>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+
+    <!-- Actions -->
+
+   <div class="ai-result-actions">
+
+    <a href="/ai/my-trips" class="ai-explore">
+        ← My AI Trips
+    </a>
+
+    <a
+        href="/ai/my-trips/<%= trip._id %>/edit"
+        class="ai-explore"
+    >
+        ✏️ Edit Trip
+    </a>
+
+    <a
+        href="/ai/trip-planner"
+        class="ai-plan-again"
+    >
+        ✨ Plan New Trip
+    </a>
+
+</div>
+
+</div>
